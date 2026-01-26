@@ -1,5 +1,5 @@
 [fortigate]
 host = https://172.16.250.253
-token = 5kNN50b8zq1qrN6Q6Nx88kr8rcpfQx
+token = gfhfghfghfghfghfghfghf
 vdom = root
 verify = false
