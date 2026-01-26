@@ -205,6 +205,14 @@ def parse_results(payload: Optional[Dict[str, Any]]) -> Any:
     return payload
 
 
+def extract_email(user: Dict[str, Any]) -> str:
+    for key in ("email-to", "email", "email_to"):
+        value = user.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ""
+
+
 def log_http_error(resp: requests.Response, context: str) -> None:
     status = resp.status_code
     if status == 401:
@@ -263,7 +271,7 @@ def create_user(
         "name": username,
         "type": "password",
         "passwd": password,
-        "email": email,
+        "email-to": email,
     }
     if dry_run:
         logging.info("DRY-RUN create user '%s'.", username)
@@ -292,7 +300,7 @@ def update_user(
     if password:
         payload["passwd"] = password
     if email:
-        payload["email"] = email
+        payload["email-to"] = email
     if not payload:
         return True
     if dry_run:
@@ -381,7 +389,7 @@ def export_users(client: FortiGateClient, output_path: str) -> bool:
         username = user.get("name")
         if not username:
             continue
-        email = user.get("email") or ""
+        email = extract_email(user)
         groups_for_user = user_to_groups.get(username, [])
         group_value = ""
         if groups_for_user:
