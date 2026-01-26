@@ -53,9 +53,3 @@ python3 fg_csvuser_import.py --export-users users_export.csv --config fg_import.
 ```
 
 Hinweis: Das Export-CSV nutzt dieselben Header (`username,password,email,group`). `password` bleibt leer. Falls ein User in mehreren Gruppen ist, wird die alphabetisch erste Gruppe exportiert.
-
-## Hinweise
-- TLS-Verify ist standardmaessig deaktiviert (`verify=false`). Fuer produktive Umgebungen `--verify` nutzen.
-- Logfile: `fortigate_user_import.log`
-- Zusammenfassung am Ende: `created`, `skipped`, `failed`, `token_assigned`, `token_missing`
-# fortigate_mass-user-add
