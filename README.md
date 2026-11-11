@@ -1,6 +1,6 @@
 # FortiGate CSV User Import
 
-Kleine Python-3-Anwendung zum Anlegen lokaler Benutzer aus CSV, Setzen von Passwoertern, Zuweisen zu Gruppen und automatischem FortiToken-Mapping.
+Kleine Python-3-Anwendung zum Anlegen lokaler Benutzer aus CSV, Setzen von Passwörtern, Zuweisen zu Gruppen und automatischem FortiToken-Mapping.
 
 ## Voraussetzungen (FortiGate)
 - REST API Admin mit ausreichenden Rechten (mindestens Read/Write fuer **User & Authentication**).
